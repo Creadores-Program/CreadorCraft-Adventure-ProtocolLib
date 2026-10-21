@@ -119,6 +119,23 @@ export class ByteBuf {
         return this;
     }
 
+    public writeBytes(src: Uint8Array | number[]): this {
+        const length = src.length;
+        this.ensureWritable(length);
+        this.buffer.set(src, this.offset);
+        this.offset += length;
+        return this;
+    }
+
+    public readBytes(length: number): Uint8Array {
+        if (this.offset + length > this.buffer.length) {
+            throw new Error("Not enough readable bytes in buffer.");
+        }
+        const bytes = this.buffer.slice(this.offset, this.offset + length);
+        this.offset += length;
+        return bytes;
+    }
+
     public readByte(): number {
         const val = this.view.getInt8(this.offset);
         this.offset += 1;
