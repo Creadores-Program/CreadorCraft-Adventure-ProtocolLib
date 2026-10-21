@@ -2,8 +2,8 @@ package org.CreadoresProgram.CCAProtocol.data;
 
 public enum Platform{
     UNKNOWN(0x00),
-    Android(0x01),
-    Linux(0x02),
+    ANDROID(0x01),
+    LINUX(0x02),
     J2ME(0x03),
     MAC(0x04),
     BSD(0x05),
