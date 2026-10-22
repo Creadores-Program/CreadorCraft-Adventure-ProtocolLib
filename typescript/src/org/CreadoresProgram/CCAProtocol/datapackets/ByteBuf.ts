@@ -131,6 +131,7 @@ export class ByteBuf {
         for(const num of src){
             this.writeUnsignedShort(num);
         }
+        return this;
     }
 
     public readBytes(length: number): Uint8Array {
