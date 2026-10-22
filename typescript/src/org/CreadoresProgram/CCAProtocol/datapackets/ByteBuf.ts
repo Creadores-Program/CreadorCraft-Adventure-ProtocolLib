@@ -127,6 +127,12 @@ export class ByteBuf {
         return this;
     }
 
+    public writeUnsignedShorts(src: Uint16Array | number[]): this {
+        for(const num of src){
+            this.writeUnsignedShort(num);
+        }
+    }
+
     public readBytes(length: number): Uint8Array {
         if (this.offset + length > this.buffer.length) {
             throw new Error("Not enough readable bytes in buffer.");
@@ -134,6 +140,17 @@ export class ByteBuf {
         const bytes = this.buffer.slice(this.offset, this.offset + length);
         this.offset += length;
         return bytes;
+    }
+
+    public readUnsignedShorts(length: number): Uint16Array {
+        if (this.offset + length > this.buffer.length) {
+            throw new Error("Not enough readable bytes in buffer.");
+        }
+        const arr: Uint16Array = new Uint16Array(length);
+        for(let i: number = 0; i < length; i++){
+            arr[i] = this.readUnsignedShort();
+        }
+        return arr;
     }
 
     public readByte(): number {
