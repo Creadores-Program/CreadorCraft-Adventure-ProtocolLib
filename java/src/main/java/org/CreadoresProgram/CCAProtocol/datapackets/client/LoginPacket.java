@@ -31,14 +31,14 @@ public class LoginPacket implements Datapacket{
     }
 
     @Override
-    public void write(ByteBuf buffer){
+    public void write(ByteBuf buffer) throws IOException{
         buffer.writeByte(this.platform.getCode());
         buffer.writeShort((int) this.lang);
         buffer.writeByte(protocol);
         buffer.writeBytes(this.ticket);
     }
     @Override
-    public void read(ByteBuf buffer){
+    public void read(ByteBuf buffer) throws IOException{
         this.platform = Platform.fromCode((int) buffer.readByte());
         this.lang = (short) buffer.readShort();
         byte protocolP = buffer.readByte();
