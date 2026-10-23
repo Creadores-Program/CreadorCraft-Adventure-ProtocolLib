@@ -1,4 +1,4 @@
-import { DataPacket } from "../Datapacket";
+import { DataPacket } from "../DataPacket";
 import { ByteBuf } from "../ByteBuf";
 import { Asset, AssetType } from "../../data/Asset";
 

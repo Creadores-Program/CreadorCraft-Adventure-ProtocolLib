@@ -109,6 +109,11 @@ export class ByteBuf {
         return this;
     }
 
+    public writeBoolean(value: boolean): this {
+        this.writeByte(value ? 1 : 0);
+        return this;
+    }
+
     public writeString(str: string): this {
         const encoder = new TextEncoder();
         const encoded = encoder.encode(str);
@@ -206,6 +211,10 @@ export class ByteBuf {
         const val = this.view.getFloat64(this.offset, false);
         this.offset += 8;
         return val;
+    }
+
+    public readBoolean(): boolean {
+        return this.readByte() !== 0;
     }
 
     public readString(): string {

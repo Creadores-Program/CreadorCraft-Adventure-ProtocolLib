@@ -1,6 +1,6 @@
 package org.CreadoresProgram.CCAProtocol.datapackets.server;
 
-import org.CreadoresProgram.CCAProtocol.datapackets.Datapacket;
+import org.CreadoresProgram.CCAProtocol.datapackets.DataPacket;
 import org.CreadoresProgram.CCAProtocol.datapackets.BufferUtils;
 import org.CreadoresProgram.CCAProtocol.data.Asset;
 
@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AssetsPacket implements Datapacket{
+public class AssetsPacket implements DataPacket{
     private String urlBase;
     @Setter(lombok.AccessLevel.NONE)
     private final List<Asset> assets = new ArrayList<>();

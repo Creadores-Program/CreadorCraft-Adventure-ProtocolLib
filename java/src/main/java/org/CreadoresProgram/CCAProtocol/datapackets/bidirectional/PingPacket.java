@@ -1,10 +1,10 @@
 package org.CreadoresProgram.CCAProtocol.datapackets.bidirectional;
 
-import org.CreadoresProgram.CCAProtocol.datapackets.Datapacket;
+import org.CreadoresProgram.CCAProtocol.datapackets.DataPacket;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
 
-public class PingPacket implements Datapacket{
+public class PingPacket implements DataPacket{
     @Override
     public void write(ByteBuf buffer) throws IOException{}
     @Override

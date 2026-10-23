@@ -1,6 +1,6 @@
 package org.CreadoresProgram.CCAProtocol.datapackets.bidirectional;
 
-import org.CreadoresProgram.CCAProtocol.datapackets.Datapacket;
+import org.CreadoresProgram.CCAProtocol.datapackets.DataPacket;
 import org.CreadoresProgram.CCAProtocol.datapackets.BufferUtils;
 
 import io.netty.buffer.ByteBuf;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DisconnectPacket implements Datapacket{
+public class DisconnectPacket implements DataPacket{
     private String reason;
     @Override
     public void write(ByteBuf buffer) throws IOException{

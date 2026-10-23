@@ -1,6 +1,6 @@
 package org.CreadoresProgram.CCAProtocol.datapackets.client;
 
-import org.CreadoresProgram.CCAProtocol.datapackets.Datapacket;
+import org.CreadoresProgram.CCAProtocol.datapackets.DataPacket;
 import org.CreadoresProgram.CCAProtocol.data.Platform;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginPacket implements Datapacket{
+public class LoginPacket implements DataPacket{
     private Platform platform;
     private short lang;
     private static final byte protocol = 0x01;
