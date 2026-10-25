@@ -118,6 +118,9 @@ export class ByteBuf {
         const encoder = new TextEncoder();
         const encoded = encoder.encode(str);
         this.writeUnsignedShort(encoded.length);
+        if(encoded.length === 0){
+            return this;
+        }
         this.ensureWritable(encoded.length);
         this.buffer.set(encoded, this.offset);
         this.offset += encoded.length;
@@ -219,6 +222,9 @@ export class ByteBuf {
 
     public readString(): string {
         const length = this.readUnsignedShort();
+        if(length === 0){
+            return "";
+        }
         const bytes = this.buffer.subarray(this.offset, this.offset + length);
         this.offset += length;
         const decoder = new TextDecoder();

@@ -8,10 +8,16 @@ public final class BufferUtils{
     public static void writeString(ByteBuf buffer, String str) throws IOException{
         byte[] strb = str.getBytes(StandardCharsets.UTF_8);
         buffer.writeShort(strb.length);
+        if(strb.length == 0){
+            return;
+        }
         buffer.writeBytes(strb);
     }
     public static String readString(ByteBuf buffer) throws IOException{
         int len = buffer.readUnsignedShort();
+        if(len == 0){
+            return "";
+        }
         byte[] strb = new byte[len];
         buffer.readBytes(strb);
         return new String(strb, StandardCharsets.UTF_8);
